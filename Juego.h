@@ -7,7 +7,7 @@
 class Juego {
 public:
     const Nat numJugadores() const;
-    Juego(Nat numJugadores, Variante var, Repositorio rep);
+    Juego(Nat numJugadores, const Variante& var, Repositorio rep);
     void ubicar(Ocurrencia o);
     const Variante obtenerVariante() const;
     const Nat obtenerTurno() const;
@@ -30,7 +30,7 @@ private:
     };
     using Tablero = vector<vector<Casillero>>;
     Tablero tablero;
-    Variante v;
+    const Variante& v;
     Nat numJug;
     Nat turnoActual;
     struct jugador{
@@ -42,7 +42,7 @@ private:
     };
     using Jugadores = vector<jugador>;
     Jugadores jugadores;
-    Jugadores repartirFichas(Variante v, Nat cantJugadores, Repositorio rep);
+    Jugadores repartirFichas(const Variante v, Nat cantJugadores, Repositorio rep);
     Tablero crearTablero(Nat tamano);
     void agregarPalabraHorizontal(ConjTrie conjPalabras, pair<Nat, Nat> prim, pair<Nat, Nat> ult);
     void agregarPalabraVertical(ConjTrie conjPalabras, pair<Nat, Nat> arr, pair<Nat, Nat> abj);

@@ -3,17 +3,14 @@
 Juego::Tablero Juego::crearTablero(Nat tamano) {
     Casillero casillero;
     casillero.letra = ' ';
-    casillero.turnoJugado = 0;
     casillero.ocupado = false;
-    for (int i = 0; i < tamano ; ++i) {
-        for (int j = 0; j < tamano ; ++j) {
-            tablero[i][j] = casillero;
-        }
-    }
+    casillero.turnoJugado = 0;
+    vector<Casillero> filas(tamano, casillero);
+    Tablero tablero(tamano, filas);
     return tablero;
 }
 
-Juego::Jugadores Juego::repartirFichas(Variante v, Nat cantJugadores, Repositorio rep) {
+Juego::Jugadores Juego::repartirFichas(const Variante v, Nat cantJugadores, Repositorio rep) {
     jugador::Mano mano(TAMANIO_ALFABETO,0);
     Ocurrencia fichasQuePusoDesde = {};
     Letra ficha;
@@ -26,7 +23,8 @@ Juego::Jugadores Juego::repartirFichas(Variante v, Nat cantJugadores, Repositori
         for (int j = 0; j < v.cantFichas(); ++j) {
             ficha = rep.front();
             rep.pop_front();
-            jugadores[i].mano[ord(ficha)]++;
+            Nat orden = ord(ficha);
+            jugadores1[i].mano[ord(ficha)]++;
         }
     }
     return jugadores1;
@@ -34,12 +32,13 @@ Juego::Jugadores Juego::repartirFichas(Variante v, Nat cantJugadores, Repositori
 
 
 }
-Juego ::Juego(Nat numJugadores, Variante var, Repositorio rep): v(var){
+Juego ::Juego(Nat numJugadores, const Variante &var, Repositorio rep): v(var){
     numJug = numJugadores;
     _rep = rep;
     turnoActual = 0;
     tablero = crearTablero(v.tamanoTablero());
     jugadores = repartirFichas(v, numJugadores, rep);
+    Nat n = 0;
 
 }
 const  Nat Juego :: numJugadores() const{

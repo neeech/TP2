@@ -1,7 +1,8 @@
 #include "Fachada_Juego.h"
 
-Fachada_Juego::Fachada_Juego(Nat k, const Fachada_Variante &v, const Repositorio &r): juego(k,v.daVariante(),r)
-        ,fachaVar(v.tamanoTablero(), v.fichas(), v.obtPuntajes(), v.obtPalabrasLeg()){}
+Fachada_Juego::Fachada_Juego(Nat k, const Fachada_Variante &v, const Repositorio &r):fachaVar(v), juego(k,v.daVariante(),r)
+{
+}
 
 void Fachada_Juego::ubicar(const Ocurrencia &o) {
     juego.ubicar(o);

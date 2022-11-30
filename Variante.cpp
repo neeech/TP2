@@ -11,7 +11,6 @@ Variante::Variante(Nat tamanoTab, Nat cantFichas, const map<Letra, Nat> &puntaje
         abecedario[ord(x.first)] = x.second;
     }
 
-    string s;
 
     for (auto pal: palabrasLegitimas) {
 

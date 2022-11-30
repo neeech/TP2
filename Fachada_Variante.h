@@ -38,7 +38,7 @@ public:
 
     const map<Letra, Nat> obtPuntajes() const;
     const set<vector<Letra>> obtPalabrasLeg() const;
-    const Variante daVariante() const;
+    const Variante& daVariante() const;
 private:
     Variante _var;
     map<Letra, Nat> _puntajes;

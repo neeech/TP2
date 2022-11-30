@@ -4,6 +4,7 @@ ConjTrie::ConjTrie(): raiz(nullptr), _size(0), _claves(), lmax(0){
     // COMPLETAR
 }
 
+
 ConjTrie::~ConjTrie(){
     // COMPLETAR
     if (raiz != nullptr){
@@ -16,6 +17,7 @@ void ConjTrie::destruir(Nodo* n){
     for (Nodo* hijo: n->siguientes) {
         if(hijo != nullptr){
             destruir(hijo);
+            hijo = nullptr;
         }
     }
     delete n;

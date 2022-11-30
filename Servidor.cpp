@@ -42,7 +42,7 @@ void Servidor::recibirMensaje(Ocurrencia o, Nat idCliente) {
                                                                    juego.obtenerPuntaje(idCliente) - viejoPuntaje )
                                                                    ,_idNotif));
         _notifs.nTodes.notificacionesServidor.push_back(make_tuple(Notificacion::nuevaUbicar(idCliente,o),++_idNotif));
-        _notifs.notificacionesPorJugador[idCliente].push_back(make_tuple(Notificacion::nuevaReponer(juego.reponerN(o.size())),++ _idNotif));
+        _notifs.notificacionesPorJugador[idCliente].push_back(make_tuple(Notificacion::nuevaReponer(juego.reponerN(o.size(),idCliente)),++ _idNotif));
         _notifs.nTodes.notificacionesServidor.push_back(make_tuple(Notificacion ::nuevaTurnoDe(idCliente + 1 ),++ _idNotif));
         _idNotif++;
 

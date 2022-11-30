@@ -31,6 +31,6 @@ const set<vector<Letra>> Fachada_Variante::obtPalabrasLeg() const {
     return _palabras;
 }
 
-const Variante Fachada_Variante::daVariante() const {
+const Variante& Fachada_Variante::daVariante() const{
     return _var;
 }
